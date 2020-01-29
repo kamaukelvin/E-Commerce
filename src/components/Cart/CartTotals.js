@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import Paypal  from "./Paypal"
 
- function CartTotals({context}) {
+ function CartTotals({context, history}) {
     const {cartSubTotal,cartTax, cartTotal,clearCart}= context
 
     return (
@@ -20,6 +21,7 @@ import {Link} from "react-router-dom"
                     <h5>
                         <span className="text-title">Total:<strong>$ {cartTotal}</strong></span>
                     </h5>
+                    <Paypal  total={cartTotal} clearCart={clearCart} history={history}/>
                </div>
             </div> 
         </div>
