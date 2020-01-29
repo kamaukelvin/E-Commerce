@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar"
 import Cart from "./components/Cart"
 import Details from "./components/Details"
 import ProductList from "./components/ProductList"
+import ProductModal from "./components/Modal"
 import Error from "./components/Error"
 import {Switch, Route} from "react-router-dom"
 
@@ -19,6 +20,7 @@ function App() {
        <Route  path="/details" component={Details}/>
        <Route  component={Error}/>
      </Switch>
+     <ProductModal />
    </React.Fragment>
   );
 }

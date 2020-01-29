@@ -6,7 +6,7 @@ import {ButtonContainer} from "./Button"
 const Details=()=> {
 
     const context= useContext(ProductContext)
-    const{product}=context
+    const{product,openModal,addToCart}=context
  
                return(
                    <div className="container py-5">
@@ -38,7 +38,7 @@ const Details=()=> {
                                         </ButtonContainer>
                                     </Link>
                                     {/* "cart is prop which when passed renders a differnt color for the button, check button component to see usage" */}
-                                    <ButtonContainer cart disabled={product.inCart?true:false} onClick={()=>context.addToCart(product.id)}>
+                                    <ButtonContainer cart disabled={product.inCart?true:false} onClick={()=>{addToCart(product.id); openModal(product.id)}}>
                                      {product.inCart? "inCart" : "add to cart"}
                                         </ButtonContainer>
                                 </div>

@@ -20,6 +20,7 @@ const {id, title, img, price, inCart}= product
                       <div className="img-container p-5" onClick={()=>{
                          
                           value.setProductSelected(id)
+                       
                           }}>
 
                       <Link to="/details">
@@ -28,7 +29,7 @@ const {id, title, img, price, inCart}= product
                       {/* the button has an attribute of disabled
                           the attribute is rendered conditionally i.e it checks to see if the value of the inCart is true, if it is, the button is disabled, if the value is false, the button is active
                           the inCart state checks if the product is in the cart already, by default it is set to false (see data.js file) */}
-                      <button className="cart-btn" disabled={inCart? true:false} onClick={()=>value.addToCart(id)}>
+                      <button className="cart-btn" disabled={inCart? true:false} onClick={()=>{value.addToCart(id);value.openModal(id)}}>
                           {/* we also want to render the paragraph "in cart" if the item is already in the cart, if not in the cart we have an icon of cart displayed
                           note: this should be done within the button */}
                           {inCart?<p className="text-capitalize mb-0" disabled>In cart</p>:<i class="fas fa-cart-plus"></i>}
